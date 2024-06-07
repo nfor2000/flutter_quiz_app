@@ -23,7 +23,6 @@ class _QuestionPageState extends State<QuestionPage> {
     super.initState();
     filterQuestions();
     selectedAnswerIndex = null;
-    correct = 0; wrong = 0;
   }
 
   void filterQuestions() {
@@ -51,16 +50,24 @@ class _QuestionPageState extends State<QuestionPage> {
   }
 
   void goToFinish(){
+    int newCorrect = correct;
+    int newWrong = wrong;
     Navigator.push(
       context, 
       MaterialPageRoute(
         builder: (context) => ResultPage(
           questionCount: filteredQuestions.length, 
-          correct: correct, 
-          wrong: wrong
+          correct: newCorrect, 
+          wrong: newWrong
           )
           )
           );
+        setState(() {
+          correct = 0;
+          wrong = 0;
+          questionIndex = 0;
+          selectedAnswerIndex = null;
+        });
   }
 
   void gotToNextQuestion(){
