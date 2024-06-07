@@ -5,7 +5,8 @@ import 'package:mb_quiz/constants/colors.dart';
 import 'package:mb_quiz/pages/questions_page.dart';
 
 class LevelPage extends StatelessWidget {
-  const LevelPage({super.key});
+  final String user;
+  const LevelPage({super.key, required this.user});
 
 
   @override
@@ -27,6 +28,16 @@ class LevelPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            Text(
+              "Welcome $user!",
+              style: GoogleFonts.dmSerifDisplay(
+                  fontSize: 25,
+                  color: white,
+                  fontWeight: FontWeight.bold),
+            ),
+
+            const SizedBox(height: 10,),
+
             Text(
               "Choose level",
               style: GoogleFonts.dmSerifDisplay(

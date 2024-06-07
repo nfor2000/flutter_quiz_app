@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mb_quiz/pages/level_page.dart';
+import 'package:mb_quiz/pages/home_page.dart';
 import 'package:mb_quiz/pages/questions_page.dart';
 
 void main() {
@@ -16,9 +16,9 @@ class QuizApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
          '/questionpage':(context) =>const  QuestionPage(),
-         '/levelpage':(context) =>const  LevelPage(),
+         '/homepage':(context) =>const  HomePage(),
       },
-      home: const LevelPage(),
+      home: const HomePage(),
     );
   }
 }
