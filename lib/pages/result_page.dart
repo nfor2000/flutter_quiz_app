@@ -84,7 +84,7 @@ class ResultPage extends StatelessWidget {
                           clipBehavior: Clip.none,
                           children: [
                             Positioned(
-                              top: -200,
+                              top: -100,
                               left: screen.width/2 - 125,
                               child: Image.asset(imageUrl, height: 200, width: 200,)
                             ),
