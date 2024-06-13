@@ -185,9 +185,9 @@ class ResultPage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.end,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Button(text: "Restart", press: () {Navigator.pop(context);},color: Colors.blue,),
+                          Button(text: "Restart", press: () {Navigator.pop(context);},color: mainColor,),
                           const SizedBox(height: 20,),
-                          Button(text: "Go Home", press: () {Navigator.pop(context);Navigator.pop(context);},color: Colors.blue,),
+                          Button(text: "Go Home", press: () {Navigator.pop(context);Navigator.pop(context);},color: mainColor,),
                         ],
                       )
                     ],
