@@ -268,7 +268,7 @@ class _QuestionPageState extends State<QuestionPage> {
                                     press: isLastQuestion
                                         ? goToFinish
                                         : gotToNextQuestion,
-                                    color: Colors.blue,
+                                    color: mainColor,
                                   )
                                 : Button(
                                     text: "Next",
