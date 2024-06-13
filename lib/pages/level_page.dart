@@ -24,7 +24,9 @@ class LevelPage extends StatelessWidget {
       body: Container(
         width: double.infinity,
         padding: const EdgeInsets.only(top: 25),
-        decoration: BoxDecoration(color: mainColor),
+        decoration: BoxDecoration(
+          image: decorationImage
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -50,7 +52,7 @@ class LevelPage extends StatelessWidget {
             ),
             Text(
               "Select an option below to start the quiz",
-              style: TextStyle(
+              style: GoogleFonts.inter(
                   fontSize: 16, color: accentColor),
             ),
 

@@ -12,7 +12,7 @@ class TextInter extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Text(
       text,
-      style: GoogleFonts.dmSerifDisplay(color: color, fontSize: fontSize, fontWeight: fontWeight),
+      style: GoogleFonts.inter(color: color, fontSize: fontSize, fontWeight: fontWeight),
     );
   }
 }

@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mb_quiz/components/answer_tile.dart';
 import 'package:mb_quiz/components/button.dart';
+import 'package:mb_quiz/components/countdown_timer.dart';
 import 'package:mb_quiz/constants/colors.dart';
 import 'package:mb_quiz/models/question.dart';
 import 'package:mb_quiz/models/questions.dart';
 import 'package:mb_quiz/pages/result_page.dart';
 
 class QuestionPage extends StatefulWidget {
-  final String?category;
+  final String? category;
   const QuestionPage({super.key, this.category});
 
   @override
@@ -35,54 +36,56 @@ class _QuestionPageState extends State<QuestionPage> {
   int questionIndex = 0;
   int correct = 0;
   int wrong = 0;
+  int countDownTime = 50;
 
   void pickAnswer(int value) {
     selectedAnswerIndex = value;
     final question = questions[questionIndex];
     if (selectedAnswerIndex == question.correctAnswerIndex) {
-      correct++ ;
-    }else{
+      correct++;
+    } else {
       wrong++;
     }
-    setState(() {
-    
-    });
+    setState(() {});
   }
 
-  void goToFinish(){
+  void goToFinish() {
     int newCorrect = correct;
     int newWrong = wrong;
     Navigator.push(
-      context, 
-      MaterialPageRoute(
-        builder: (context) => ResultPage(
-          questionCount: filteredQuestions.length, 
-          correct: newCorrect, 
-          wrong: newWrong
-          )
-          )
-          );
-        setState(() {
-          correct = 0;
-          wrong = 0;
-          questionIndex = 0;
-          selectedAnswerIndex = null;
-        });
+        context,
+        MaterialPageRoute(
+            builder: (context) => ResultPage(
+                questionCount: filteredQuestions.length,
+                correct: newCorrect,
+                wrong: newWrong)));
+    setState(() {
+      correct = 0;
+      wrong = 0;
+      questionIndex = 0;
+      selectedAnswerIndex = null;
+    });
   }
 
-  void gotToNextQuestion(){
-    if(questionIndex < filteredQuestions.length -1 ){
+  void gotToNextQuestion() {
+    if (questionIndex < filteredQuestions.length - 1) {
       questionIndex++;
       selectedAnswerIndex = null;
+      countDownTime = 50;
     }
-    setState(() {
-      
-    });
+    setState(() {});
+  }
+
+  void onTimerEnd(int? value) {
+    selectedAnswerIndex = value;
+
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
     final question = filteredQuestions[questionIndex];
+
     bool isLastQuestion = questionIndex == filteredQuestions.length - 1;
     final screen = MediaQuery.of(context).size;
     return Scaffold(
@@ -92,15 +95,18 @@ class _QuestionPageState extends State<QuestionPage> {
             padding: const EdgeInsets.all(0),
             width: screen.width,
             height: screen.height,
-            decoration: const BoxDecoration(
-                gradient: LinearGradient(colors: [
-              Color.fromARGB(255, 105, 13, 179),
-              Color.fromARGB(255, 124, 149, 249)
-            ])),
+            decoration: BoxDecoration(image: decorationImage),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                IconButton(onPressed: (){Navigator.pop(context);}, icon: Icon(Icons.arrow_back, color: white,)),
+                IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: Icon(
+                      Icons.arrow_back,
+                      color: white,
+                    )),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25),
                   child: Row(
@@ -110,13 +116,13 @@ class _QuestionPageState extends State<QuestionPage> {
                       Text.rich(TextSpan(children: [
                         TextSpan(
                             text: "Level: ",
-                            style: TextStyle(
+                            style: GoogleFonts.inter(
                                 color: white,
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold)),
                         TextSpan(
-                            text:widget.category,
-                            style: TextStyle(
+                            text: widget.category,
+                            style: GoogleFonts.inter(
                                 color: accentColor,
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold))
@@ -124,13 +130,14 @@ class _QuestionPageState extends State<QuestionPage> {
                       Text.rich(TextSpan(children: [
                         TextSpan(
                             text: "Question ",
-                            style: TextStyle(
+                            style: GoogleFonts.inter(
                                 color: white,
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold)),
                         TextSpan(
-                            text: "${questionIndex + 1}/${filteredQuestions.length}",
-                            style: TextStyle(
+                            text:
+                                "${questionIndex + 1}/${filteredQuestions.length}",
+                            style: GoogleFonts.inter(
                                 color: accentColor,
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold))
@@ -182,7 +189,8 @@ class _QuestionPageState extends State<QuestionPage> {
                                 width: 50,
                                 height: 50,
                                 decoration: BoxDecoration(
-                                    color: correct > 0?successColor:mainColor,
+                                    color:
+                                        correct > 0 ? successColor : mainColor,
                                     shape: BoxShape.circle,
                                     boxShadow: const [
                                       BoxShadow(
@@ -196,7 +204,7 @@ class _QuestionPageState extends State<QuestionPage> {
                                   child: Text(
                                     "$correct",
                                     style:
-                                        TextStyle(color: white, fontSize: 24),
+                                        GoogleFonts.inter(color: white, fontSize: 24),
                                   ),
                                 ),
                               )),
@@ -207,7 +215,7 @@ class _QuestionPageState extends State<QuestionPage> {
                                 Text.rich(TextSpan(children: [
                                   TextSpan(
                                     text: question.question,
-                                    style: GoogleFonts.dmSerifDisplay(
+                                    style: GoogleFonts.inter(
                                         color: mainColor,
                                         fontWeight: FontWeight.bold,
                                         fontSize: 18),
@@ -230,7 +238,9 @@ class _QuestionPageState extends State<QuestionPage> {
                                 final options = question.options;
                                 return GestureDetector(
                                     onTap: () {
-                                      selectedAnswerIndex == null ? pickAnswer(index)  :null;
+                                      selectedAnswerIndex == null
+                                          ? pickAnswer(index)
+                                          : null;
                                     },
                                     child: AnswerTile(
                                       answer: options[index],
@@ -242,18 +252,34 @@ class _QuestionPageState extends State<QuestionPage> {
                                     ));
                               }),
                         ),
+                        Center(
+                          child: CountdownTimer(
+                              key: ValueKey(questionIndex),
+                              duration: countDownTime,
+                              onTimerEnd: () {
+                                onTimerEnd(question.correctAnswerIndex);
+                              }),
+                        ),
                         Container(
                             margin: const EdgeInsets.all(20),
-                            child: selectedAnswerIndex != null? Button(
-                                text: "Next",
-                                press: isLastQuestion? goToFinish: gotToNextQuestion, color: Colors.blue,):Button(
-                                text: "Next",
-                                press: () {
-                                  return;
-                                }, color: textColor,) )
+                            child: selectedAnswerIndex != null
+                                ? Button(
+                                    text: "Next",
+                                    press: isLastQuestion
+                                        ? goToFinish
+                                        : gotToNextQuestion,
+                                    color: Colors.blue,
+                                  )
+                                : Button(
+                                    text: "Next",
+                                    press: () {
+                                      return;
+                                    },
+                                    color: textColor,
+                                  )),
                       ],
                     ),
-                  )
+                  ),
                 ],
               ),
             ),

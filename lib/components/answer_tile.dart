@@ -56,7 +56,7 @@ class AnswerTile extends StatelessWidget {
           Expanded(
               child: Text(
             answer,
-            style: GoogleFonts.dmSerifDisplay(
+            style: GoogleFonts.inter(
                 color: mainColor, fontSize: 18, fontWeight: FontWeight.w600),
           )),
           const SizedBox( width: 10,),
@@ -86,7 +86,7 @@ class AnswerTile extends StatelessWidget {
           Expanded(
               child: Text(
             answer,
-            style: GoogleFonts.dmSerifDisplay(
+            style: GoogleFonts.inter(
                 color: mainColor, fontSize: 18, fontWeight: FontWeight.w600),
           )),
 
