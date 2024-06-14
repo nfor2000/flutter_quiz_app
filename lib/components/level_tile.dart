@@ -37,10 +37,9 @@ class LevelTile extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 10,),
-                Expanded(
+                const Expanded(
                   child: Text.rich(
                     TextSpan(
-                  
                     children: [
                       TextSpan(text:"Your highest score is ", style: TextStyle(color: Colors.grey),),
                       TextSpan(text: "40", style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),),
