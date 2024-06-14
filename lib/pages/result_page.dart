@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:mb_quiz/components/button.dart';
 import 'package:mb_quiz/components/text_tile.dart';
 import 'package:mb_quiz/constants/colors.dart';
@@ -48,8 +47,8 @@ class ResultPage extends StatelessWidget {
                     child: Text.rich(
                       TextSpan(
                         children: [
-                          TextSpan(text: "Quiz ", style: GoogleFonts.dmSerifDisplay(fontSize: 28, color: white, fontWeight: FontWeight.bold)),
-                          TextSpan(text: "Summary", style: GoogleFonts.dmSerifDisplay(fontSize: 28, color: accentColor, fontWeight: FontWeight.bold))
+                          TextSpan(text: "Quiz ", style: TextStyle(fontSize: 28, color: white, fontWeight: FontWeight.bold)),
+                          TextSpan(text: "Summary", style: TextStyle(fontSize: 28, color: accentColor, fontWeight: FontWeight.bold))
                         ]
                       )
                     ),
@@ -97,9 +96,9 @@ class ResultPage extends StatelessWidget {
                                    TextInter(text: getComment(score),color: mainColor, fontSize: 24, fontWeight:  FontWeight.bold),
                               Text.rich(
                                 TextSpan(children: [
-                                  TextSpan(text: "You've scrored ", style: GoogleFonts.inter(fontSize: 18,color: textColor)),
-                                  TextSpan(text: "$score", style: GoogleFonts.inter(fontSize: 18,color: accentColor)),
-                                  TextSpan(text: " points", style: GoogleFonts.inter(fontSize: 18,color: textColor))
+                                  TextSpan(text: "You've scored ", style: TextStyle(fontSize: 18,color: textColor)),
+                                  TextSpan(text: "$score", style: TextStyle(fontSize: 18,color: accentColor)),
+                                  TextSpan(text: " points", style: TextStyle(fontSize: 18,color: textColor))
                                 ])
                               ),
                               Padding(
@@ -120,10 +119,10 @@ class ResultPage extends StatelessWidget {
                                               child: Icon(Icons.add, color: white,),
                                             ),
                                             const SizedBox(width: 5,),
-                                            Text("$questionCount", style: GoogleFonts.inter(color: mainColor, fontWeight: FontWeight.bold),)
+                                            Text("$questionCount", style: TextStyle(color: mainColor, fontWeight: FontWeight.bold),)
                                           ],
                                         ),
-                                        Text("Total questions", style: GoogleFonts.inter(color: textColor),)
+                                        Text("Total questions", style: TextStyle(color: textColor),)
                                       ],
                                     ),
                                       
@@ -140,10 +139,10 @@ class ResultPage extends StatelessWidget {
                                               child: Icon(Icons.check, color: white,),
                                             ),
                                             const SizedBox(width: 5,),
-                                            Text("$correct", style: GoogleFonts.inter(color: successColor, fontWeight: FontWeight.bold),)
+                                            Text("$correct", style: TextStyle(color: successColor, fontWeight: FontWeight.bold),)
                                           ],
                                         ),
-                                        Text("Correct", style: GoogleFonts.inter(color: textColor),)
+                                        Text("Correct", style: TextStyle(color: textColor),)
                                       ],
                                     ),
                                   
@@ -160,10 +159,10 @@ class ResultPage extends StatelessWidget {
                                               child: Icon(Icons.clear, color: white,),
                                             ),
                                             const SizedBox(width: 5,),
-                                            Text("$wrong", style: GoogleFonts.inter(color: dangerColor, fontWeight: FontWeight.bold),)
+                                            Text("$wrong", style: TextStyle(color: dangerColor, fontWeight: FontWeight.bold),)
                                           ],
                                         ),
-                                        Text("Wrong", style: GoogleFonts.inter(color: textColor),)
+                                        Text("Wrong", style: TextStyle(color: textColor),)
                                       ],
                                     )
                                   

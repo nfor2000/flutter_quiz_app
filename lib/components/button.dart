@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:mb_quiz/constants/colors.dart';
 
 class Button extends StatelessWidget {
@@ -20,7 +19,7 @@ class Button extends StatelessWidget {
         shadowColor: Colors.grey,
         child: InkWell(
           onTap: press,
-          child: Center(child: Text(text, style: GoogleFonts.inter(color: white, fontSize: 18),)),
+          child: Center(child: Text(text, style: TextStyle(color: white, fontSize: 18),)),
         ),
       ),
     );

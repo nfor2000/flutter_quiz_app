@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'dart:async';
 
 import 'package:mb_quiz/constants/colors.dart';
 
 class CountdownTimer extends StatefulWidget {
-  final int duration; // Duration of the timer in seconds
+  final int duration; 
+  final selectedIndex;// Duration of the timer in seconds
   final  Function onTimerEnd; // Callback to handle timer end
 
   const CountdownTimer({
     super.key,
     required this.duration,
     required this.onTimerEnd,
+    required this.selectedIndex
   });
 
   @override
@@ -40,6 +41,8 @@ class _CountdownTimerState extends State<CountdownTimer> {
       if (_remainingTime == 0) {
         widget.onTimerEnd();
         _timer?.cancel();
+      }else if(widget.selectedIndex != null ){
+        _timer?.cancel();
       } else {
         setState(() {
           _remainingTime--;
@@ -63,7 +66,7 @@ class _CountdownTimerState extends State<CountdownTimer> {
       ),
       child: Text(
         _formatTime(_remainingTime),
-        style: GoogleFonts.inter(
+        style: TextStyle(
           fontSize: 30,
           fontWeight: FontWeight.bold,
           color: white,

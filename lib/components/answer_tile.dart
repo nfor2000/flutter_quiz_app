@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:mb_quiz/constants/colors.dart';
 
 class AnswerTile extends StatelessWidget {
@@ -56,7 +55,7 @@ class AnswerTile extends StatelessWidget {
           Expanded(
               child: Text(
             answer,
-            style: GoogleFonts.inter(
+            style: TextStyle(
                 color: mainColor, fontSize: 18, fontWeight: FontWeight.w600),
           )),
           const SizedBox( width: 10,),
@@ -86,7 +85,7 @@ class AnswerTile extends StatelessWidget {
           Expanded(
               child: Text(
             answer,
-            style: GoogleFonts.inter(
+            style: TextStyle(
                 color: mainColor, fontSize: 18, fontWeight: FontWeight.w600),
           )),
 

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:mb_quiz/constants/colors.dart';
 import 'package:mb_quiz/pages/level_page.dart';
 
@@ -9,7 +8,6 @@ class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() => _HomePageState();
 }
-
 
 class _HomePageState extends State<HomePage> {
   String name = "";
@@ -47,14 +45,14 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   Text(
                     "Your Mob",
-                    style: GoogleFonts.inter(
+                    style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
                         color: accentColor),
                   ),
                    Text(
                     "ile Quiz App",
-                    style: GoogleFonts.inter(
+                    style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
                         color: accentColor),
@@ -64,7 +62,7 @@ class _HomePageState extends State<HomePage> {
               
               Text(
                 "Enter your name to get started",
-                style: GoogleFonts.inter(fontSize: 16, color: white),
+                style: TextStyle(fontSize: 16, color: white),
               ),
               const SizedBox(
                 height: 20,
@@ -76,7 +74,7 @@ class _HomePageState extends State<HomePage> {
                 child: SizedBox(
                   width: double.infinity,
                   child: TextFormField(
-                    style: GoogleFonts.inter(
+                    style: TextStyle(
                         color: Colors.white), // Set text color to accentColor
                     textAlignVertical:
                         TextAlignVertical.center, 
@@ -85,7 +83,7 @@ class _HomePageState extends State<HomePage> {
                       
                       hintText: "e.g. Adam Smith",
                       contentPadding: const EdgeInsets.symmetric(horizontal: 20),
-                      hintStyle: GoogleFonts.inter(color: textColor),
+                      hintStyle: TextStyle(color: textColor),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(color: white),
@@ -134,7 +132,7 @@ class _HomePageState extends State<HomePage> {
                   child:Center(
                       child: Text(
                     "Continue",
-                    style: GoogleFonts.inter(color: white, fontSize: 18),
+                    style: TextStyle(color: white, fontSize: 18),
                   )),
                 ),
               ),
@@ -149,27 +147,27 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     TextSpan(
                       text: 'By clicking ',
-                      style: GoogleFonts.inter(color: white),
+                      style: TextStyle(color: white),
                     ),
                     TextSpan(
                       text: 'continue',
-                      style: GoogleFonts.inter(color: accentColor),
+                      style: TextStyle(color: accentColor),
                     ),
                     TextSpan(
                       text: ', you agree to our ',
-                      style: GoogleFonts.inter(color: white),
+                      style: TextStyle(color: white),
                     ),
                     TextSpan(
                       text: 'Terms of Service',
-                      style: GoogleFonts.inter(color: accentColor),
+                      style: TextStyle(color: accentColor),
                     ),
                     TextSpan(
                       text: ' and ',
-                      style: GoogleFonts.inter(color: white),
+                      style: TextStyle(color: white),
                     ),
                     TextSpan(
                       text: 'Privacy Policy',
-                      style: GoogleFonts.inter(color: accentColor),
+                      style: TextStyle(color: accentColor),
                     ),
                   ],
                 ),

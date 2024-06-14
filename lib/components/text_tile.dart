@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class TextInter extends StatelessWidget {
   final String text;
@@ -12,7 +11,7 @@ class TextInter extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Text(
       text,
-      style: GoogleFonts.inter(color: color, fontSize: fontSize, fontWeight: fontWeight),
+      style: TextStyle(color: color, fontSize: fontSize, fontWeight: fontWeight),
     );
   }
 }

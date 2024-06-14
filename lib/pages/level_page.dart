@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:mb_quiz/components/level_tile.dart';
 import 'package:mb_quiz/constants/colors.dart';
 import 'package:mb_quiz/pages/questions_page.dart';
@@ -32,7 +31,7 @@ class LevelPage extends StatelessWidget {
           children: [
             Text(
               "Welcome $user!",
-              style: GoogleFonts.dmSerifDisplay(
+              style: TextStyle(
                   fontSize: 25,
                   color: white,
                   fontWeight: FontWeight.bold),
@@ -42,7 +41,7 @@ class LevelPage extends StatelessWidget {
 
             Text(
               "Choose level",
-              style: GoogleFonts.dmSerifDisplay(
+              style: TextStyle(
                   fontSize: 25,
                   color: white,
                   fontWeight: FontWeight.bold),
@@ -52,7 +51,7 @@ class LevelPage extends StatelessWidget {
             ),
             Text(
               "Select an option below to start the quiz",
-              style: GoogleFonts.inter(
+              style: TextStyle(
                   fontSize: 16, color: accentColor),
             ),
 

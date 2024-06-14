@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter/widgets.dart';
 
 
 class LevelTile extends StatelessWidget {
@@ -18,7 +18,7 @@ class LevelTile extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Text(level, style: GoogleFonts.inter(color: Colors.white, fontSize: 18,),),
+          Text(level, style: TextStyle(color: Colors.white, fontSize: 18,),),
           const SizedBox(height: 5,),
           Container(
             padding: const EdgeInsets.all(10),
@@ -37,15 +37,17 @@ class LevelTile extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 10,),
-                Text.rich(
-                  TextSpan(
-
-                  children: [
-                    TextSpan(text:"Your highest score is ", style: GoogleFonts.inter(color: Colors.grey),),
-                    TextSpan(text: "40", style: GoogleFonts.inter(color: Colors.blue, fontWeight: FontWeight.bold),),
-                    TextSpan(text: " points ", style: GoogleFonts.inter(color: Colors.grey),),
-                  ],
-                  )
+                Expanded(
+                  child: Text.rich(
+                    TextSpan(
+                  
+                    children: [
+                      TextSpan(text:"Your highest score is ", style: TextStyle(color: Colors.grey),),
+                      TextSpan(text: "40", style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),),
+                      TextSpan(text: " points ", style: TextStyle(color: Colors.grey),),
+                    ],
+                    )
+                  ),
                 )
               ],
             ),

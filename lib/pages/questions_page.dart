@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:mb_quiz/components/answer_tile.dart';
 import 'package:mb_quiz/components/button.dart';
 import 'package:mb_quiz/components/countdown_timer.dart';
@@ -116,13 +115,13 @@ class _QuestionPageState extends State<QuestionPage> {
                       Text.rich(TextSpan(children: [
                         TextSpan(
                             text: "Level: ",
-                            style: GoogleFonts.inter(
+                            style: TextStyle(
                                 color: white,
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold)),
                         TextSpan(
                             text: widget.category,
-                            style: GoogleFonts.inter(
+                            style: TextStyle(
                                 color: accentColor,
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold))
@@ -130,14 +129,14 @@ class _QuestionPageState extends State<QuestionPage> {
                       Text.rich(TextSpan(children: [
                         TextSpan(
                             text: "Question ",
-                            style: GoogleFonts.inter(
+                            style: TextStyle(
                                 color: white,
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold)),
                         TextSpan(
                             text:
                                 "${questionIndex + 1}/${filteredQuestions.length}",
-                            style: GoogleFonts.inter(
+                            style: TextStyle(
                                 color: accentColor,
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold))
@@ -162,7 +161,7 @@ class _QuestionPageState extends State<QuestionPage> {
                 clipBehavior: Clip.none,
                 children: [
                   Positioned(
-                    top: -75,
+                    top: -100,
                     left: 25,
                     child: Container(
                       padding: const EdgeInsets.only(
@@ -204,7 +203,7 @@ class _QuestionPageState extends State<QuestionPage> {
                                   child: Text(
                                     "$correct",
                                     style:
-                                        GoogleFonts.inter(color: white, fontSize: 24),
+                                        TextStyle(color: white, fontSize: 24),
                                   ),
                                 ),
                               )),
@@ -215,7 +214,7 @@ class _QuestionPageState extends State<QuestionPage> {
                                 Text.rich(TextSpan(children: [
                                   TextSpan(
                                     text: question.question,
-                                    style: GoogleFonts.inter(
+                                    style: TextStyle(
                                         color: mainColor,
                                         fontWeight: FontWeight.bold,
                                         fontSize: 18),
@@ -227,7 +226,7 @@ class _QuestionPageState extends State<QuestionPage> {
                     ),
                   ),
                   Container(
-                    padding: const EdgeInsets.only(top: 100),
+                    padding: const EdgeInsets.only(top: 75),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
@@ -258,7 +257,7 @@ class _QuestionPageState extends State<QuestionPage> {
                               duration: countDownTime,
                               onTimerEnd: () {
                                 onTimerEnd(question.correctAnswerIndex);
-                              }),
+                              }, selectedIndex: selectedAnswerIndex,),
                         ),
                         Container(
                             margin: const EdgeInsets.all(20),
